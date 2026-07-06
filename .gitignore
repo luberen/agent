@@ -1,7 +1,14 @@
 # venv
 agent_dev/
+.venv/
+venv/
+
+__pycache__/
+
+*.pyc
+
+*.log
+
+container/*.tar
+
 helps/
-
-
-
-

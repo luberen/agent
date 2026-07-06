@@ -1,0 +1,13 @@
+provider: custom
+api_base: http://localhost:8000/v1
+api_key: sk-INUIvt65567fYVYRrtx7uojpk0HGACrx5T   # ← LITELLM_MASTER_KEY from .env
+
+model: mistral
+
+reasoning_effort: none
+think: false
+show_reasoning: false
+
+temperature: 0.7
+max_tokens: 4096
+max_turns: 80

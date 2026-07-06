@@ -1,0 +1,28 @@
+# This is an example configuration file
+# To learn more, see the full config.yaml reference: https://docs.continue.dev/reference
+
+name: My Config
+version: 1.0.0
+schema: v1
+
+
+models:
+  - name: Mistral-LiteLLM
+    provider: openai
+    apiBase: http://localhost:8000/v1
+    apiKey: sk-INUIvt65567fYVYRrtx7uojpk0HGACrx5T
+    model: mistral
+    completionOptions:
+      temperature: 0.7
+      maxTokens: 2048
+
+defaultModel: Mistral-LiteLLM
+
+rules:
+  - .continue/rules/qt-cpp-rules.md
+
+# Optional: Context providers for better Qt/C++ experience
+contextProviders:
+  - name: codebase
+    params:
+      nRetrieve: 20
