@@ -1,26 +1,11 @@
 model_list:
-  # Intent Router / Planner
-  - model_name: supervisor-router
+  - model_name: mistral
     litellm_params:
-      model: openai/gpt-4o
-      api_base: https://azure.com
-      api_key: "ghp_YOUR_GITHUB_PAT"
+      model: mistral/mistral-small-latest
+      api_key: os.environ/MISTRAL_API_KEY
 
-  # Heavy Structural Tasks (Gemini 2.5 Pro/Flash)
-  - model_name: heavy-agent
-    litellm_params:
-      model: gemini/gemini-2.5-flash
-      api_key: "AIzaSy_YOUR_KEY"
-      # 2026 Fallback Management Strategy
-      fallbacks: ["fast-agent"] 
+general_settings:
+  master_key: os.environ/LITELLM_MASTER_KEY
 
-  # Rapid Inner-Loop Coding & Terminal Validation (Groq)
-  - model_name: fast-agent
-    litellm_params:
-      model: groq/llama-3.3-70b-versatile
-      api_key: "gsk_YOUR_KEY"
-
-router_settings:
-  routing_strategy: "latency-based-routing" # Routes to the fastest free endpoint
-  allowed_fails: 1
-  cooldown_time: 15
+litellm_settings:
+  set_verbose: false
