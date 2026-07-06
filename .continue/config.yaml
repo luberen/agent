@@ -1,0 +1,28 @@
+models:
+  - title: "Supervisor Router (GPT-4o)"
+    provider: "openai"
+    model: "supervisor-router"
+    apiBase: "http://localhost:8000/v1"
+    systemPrompt: |
+      You are the architectural supervisor pattern router. 
+      Analyze the incoming workspace request. 
+      If it requires huge context windows (e.g. reading full Qt codebases), call 'heavy-agent'.
+      If it requires atomic, fast script generation, terminal checks, or regex, call 'fast-agent'.
+
+  - title: "Heavy Agent (Gemini Flash)"
+    provider: "openai"
+    model: "heavy-agent"
+    apiBase: "http://localhost:8000/v1"
+
+  - title: "Fast Agent (Llama 3.3)"
+    provider: "openai"
+    model: "fast-agent"
+    apiBase: "http://localhost:8000/v1"
+
+# 2026 Rules Engine - Grounding the Agent locally without memory overhead
+rules:
+  - name: "Qt Environment Constraints"
+    rule: |
+      This system is a low-spec Lubuntu 26.04 environment. 
+      Never attempt to run local LLMs or heavy optimization builds. 
+      Keep UI bindings strictly aligned to lightweight Qt components.

@@ -1,0 +1,12 @@
+agent:
+  name: "Lubuntu-Dev-Claw"
+  # Point directly to your local LiteLLM Proxy to benefit from free-tier fallback loops
+  provider: "openai_compatible"
+  api_base: "http://localhost:8000/v1"
+  default_model: "heavy-agent" 
+  
+verification:
+  # 2026 Feature: "Goal Completion Contracts"
+  # Ensures the agent verifies its work using real terminal output instead of guessing
+  pre_verify_hook: "make check || python3 -m pytest" 
+  max_iterations: 8
