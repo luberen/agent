@@ -1,15 +1,27 @@
-# venv
-agent_dev/
-.venv/
-venv/
-
-
+# Python
 __pycache__/
-
 *.pyc
 
+# Virtual environment
+agent_dev/
+
+# Environment
+.env
+
+# Podman test files
+*.pid
+
+# LiteLLM
 *.log
+
+# VS Code
+.vscode/
+
+# Python cache
+.pytest_cache/
+
 
 container/*.tar
 
 helps/
+
